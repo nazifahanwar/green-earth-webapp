@@ -47,8 +47,10 @@ const showPlantsByCategory = (plants)=>{
                         <div class="bg-[#DCFCE7] rounded-xl font-semibold text-[#15803D] p-2">${plant.category}</div>
                         <p class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
                     </div>
+                    <div class="flex justify-center">
                     <button class="btn btn-wide rounded-4xl bg-[#15803D]  hover:bg-[#15803D50]  text-white">Add To Cart
                     </button>
+                    </div>
                     </div>
             
                 </div>
