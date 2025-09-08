@@ -39,7 +39,7 @@
                         <li><a href="">Gallery</a></li>
                         <li><a href="">Plant A Tree</a></li>
                  </ul>
-                <button class="p-[10px] rounded-3xl bg-[#FACC15] hover:bg-[#FACC1550] text-[#15803D] mr-[10px] font-semibold">
+                <button class="btn mt-4 rounded-3xl bg-[#FACC15] hover:bg-[#FACC1550] text-[#15803D]">
                     Plant A Tree
                 </button>
         </nav>
@@ -52,11 +52,9 @@
                 <h1 class="text-center text-3xl font-bold mt-[10px]">Plant a Tree, Grow a Future</h1>
         <p class="text-center mt-3">Join our mission to plant 1 million trees and make the Earth greener for future
         generations.</p>
-        <div>
-            <button class="p-[10px] mt-6 flex justify-center rounded-3xl bg-[#FACC15] font-semibold hover:bg-[#FACC1550] text-[#15803D] lg:mb-[10px]">
+            <button class="btn mt-4 rounded-3xl bg-[#FACC15] hover:bg-[#FACC1550] text-[#15803D]">
             Get Involved
         </button>
-            </div>
         </div>
             <img src="./assets/hero-leaf2.png" class="max-lg:hidden lg:w-1/4">
         </div>
@@ -66,32 +64,27 @@
         </div>
     </section>
     <section class="bg-[#F0FDF4]">
+        <div>
+          <dialog id="details_modal" class="modal">
+
+          </dialog>
+            </div>
         <h2 class="text-3xl text-center font-bold p-9">Choose Your Trees</h2>
         <div class="max-w-11/12 mx-auto lg:grid grid-cols-12 gap-4">
             <div id="categories-container" class="col-span-2 max-lg:grid grid-cols-3">
                  <h3 class="text-xl font-bold mb-3">Categories</h3>
                 <button onclick ='loadAllPlants()' class="btn btn-wide hover:bg-[#15803D] hover:text-white border-none bg-[#F0FDF4] p-1 rounded-sm font-normal justify-start">All Trees</button>
             </div>
-            <div id="plants-container" class="col-span-8  grid grid-cols-3 max-sm:grid-cols-1 gap-3">
-                
+            <div id="plants-container" class="col-span-8  grid grid-cols-3 max-sm:grid-cols-1 gap-3">  
             </div>
-            <div>
-              <!-- Open the modal using ID.showModal() method -->
-<dialog id="details_modal" class="modal">
+            <div class="col-span-2 p-1 bg-white">
+            <h3 class="text-xl font-bold mb-3">Your Cart</h3>
+            <p class="font-semibold hidden">Total: <span id="total-price">0</span></p>
 
-</dialog>
+            <div id="cart-container" >
+
             </div>
-            <div class="col-span-2 p-1 border-1 bg-white">
-             <h3 class="text-xl font-bold mb-3">Your Cart</h3>
-             <div class="bg-[#F0FDF4] p-3 mb-2 rounded-lg flex justify-between items-center">
-                <div class="flex flex-col">
-                <p class="font-semibold text-md">Mango Tree</p>
-                <p class="text-gray-500">hdjsdjsskks</p>
-                </div>
-                <i class="text-gray-500 fa-solid fa-xmark"></i>
-             </div>   
             </div>
-        </div>
         <section class="max-w-11/12 mx-auto">
             <h2 class="text-3xl text-center font-bold mt-16 mb-8">About the Campaign</h2>
         <div class="flex max-sm:flex-col lg:w-3/5 pb-[70px] lg:mx-auto justify-between items-center gap-5">
