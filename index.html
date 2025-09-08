@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
     <link rel="icon" type="image/png" href="./assets/hand-giving-growing-plant.png">
-    <!-- daisy ui & taiwind -->
+<!-- daisy ui & tailwind -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <!-- google font -->
@@ -75,6 +75,12 @@
             <div id="plants-container" class="col-span-8  grid grid-cols-3 max-sm:grid-cols-1 gap-3">
                 
             </div>
+            <div>
+              <!-- Open the modal using ID.showModal() method -->
+<dialog id="details_modal" class="modal">
+
+</dialog>
+            </div>
             <div class="col-span-2 p-1 border-1 bg-white">
              <h3 class="text-xl font-bold mb-3">Your Cart</h3>
              <div class="bg-[#F0FDF4] p-3 mb-2 rounded-lg flex justify-between items-center">
@@ -133,8 +139,9 @@
   class="select w-full border-none focus:outline-none mt-[7px]" required>
   <option value="" disabled selected hidden>Number Of Trees</option>
   <option value="1">1</option>
+  <option value="3">3</option>
   <option value="5">5</option>
-  <option value="10">10</option>
+  <option value="10">15</option>
   <option value="20">20</option>
 </select>
   <button type="submit" class="btn mt-4 rounded-3xl bg-[#FACC15] hover:bg-[#FACC1550] text-[#15803D]">Donate Now</button>
@@ -144,7 +151,7 @@
   </section>
 </main>
 <footer class=" bg-[#14532D]">
-  <div class="max-w-11/12 mx-auto footer sm:footer-horizontal text-neutral-content items-center p-4">
+  <div class="max-w-11/12 mx-auto footer sm:footer-horizontal text-neutral-content items-center p-1">
     <aside class="grid-flow-col items-center">
     <img src="./assets/hand-giving-growing-plant.png" class="w-[50px] h-[50px]">
     <p>© 2025 Green Earth. All Rights Reserved.</p>

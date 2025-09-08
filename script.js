@@ -31,17 +31,17 @@ const loadPlantsByCategory = (id)=>{
             }
 const showPlantsByCategory = (plants)=>{
     const plantsContainer = document.getElementById('plants-container');
-    plantsContainer.innerHTML = '';
-  plants.forEach(plant =>{
-    console.log(plant);
-
+    plantsContainer.innerHTML = '';    
+    plants.forEach(plant =>{
+    //console.log(plant);
+    
     plantsContainer.innerHTML +=`
                 <div class="bg-white flex flex-col rounded-lg shadow-lg">
                     <div>
                          <img src="${plant.image}" class="w-full h-60 object-cover rounded-md">
                     </div>
                     <div class="space-y-2 p-3">
-                    <h4 class="font-bold text-lg">${plant.name}</h4>
+                    <h4 class="font-bold text-lg" onclick ="loadPlantDetails(${plant.id})">${plant.name}</h4>
                    <p class='text-justify text-gray-500 text-ellipsis line-clamp-2'>${plant.description}</p>
                     <div class="mb-6 flex justify-between items-center">
                         <div class="bg-[#DCFCE7] rounded-xl font-semibold text-[#15803D] p-2">${plant.category}</div>
@@ -55,7 +55,7 @@ const showPlantsByCategory = (plants)=>{
             
                 </div>
     `
-  })
+})
  
 }
 const loadAllPlants = ()=>{
@@ -68,7 +68,33 @@ const loadAllPlants = ()=>{
     
 }
 loadAllPlants();
-//handle active button
+
+
+const loadPlantDetails = (id)=>{
+            fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+            .then(res => res.json())
+            .then(data => showPlantDetails(data.plants) )
+            .catch((err)=>{
+            alert('error happened in loading plant details!')
+             }); 
+                 
+            }
+const showPlantDetails = (plant)=>{
+    document.getElementById('details_modal').showModal()
+    document.getElementById('details_modal').innerHTML +=`
+      <div class="modal-box w-11/12 max-w-auto  space-y-2">
+      <h3 class="text-xl font-bold">${plant.name}</h3>
+<img src=${plant.image} class="lg:h-72 max-lg:h-48 w-full object-cover rounded-xl">
+<p><span class="font-bold">Category: </span>${plant.category}</p>
+<p><span class="font-bold">Price: </span>৳${plant.price}</p>
+<p><span class="font-bold">Description: </span>${plant.description}</p>
+      <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      </form>
+    </div>
+  </div>
+    `
+}            
  
                 
             
