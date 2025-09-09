@@ -12,7 +12,7 @@ const loadCategories = ()=>{
         showCategories(categories);
         })
     .catch((err)=>{
-        alert('error happened in loading categories!')
+      console.log('error happened in loading categories!')
     });
 }
 const showCategories =(categories)=>{
@@ -86,7 +86,7 @@ const loadAllPlants = ()=>{
         .then(res => res.json())
         .then(data => showPlantsByCategory(data.plants))
         .catch((err)=>{
-                alert('error happened in loading all plants!')
+                console.log('error happened in loading all plants!')
              }); 
     
 }
@@ -98,7 +98,7 @@ const loadPlantDetails = (id)=>{
             .then(res => res.json())
             .then(data => showPlantDetails(data.plants) )
             .catch((err)=>{
-            alert('error happened in loading plant details!')
+            console.log('error happened in loading plant details!')
              }); 
                  
             }
@@ -149,7 +149,7 @@ function deleteCart(cartName) {
     showCarts(); 
 }
 
-function handleCarts(e) {
+function handleCarts(e) {    
     const plant_name = e.target.parentNode.parentNode.children[0].innerText;
     const price = e.target.parentNode.parentNode.children[2].children[1].innerText;
     alert(`${plant_name} has been added to the cart.`);
@@ -165,7 +165,9 @@ function handleCarts(e) {
 plantsContainer.addEventListener('click', (e) => {
     if (e.target.innerText === 'Add To Cart') {
         handleCarts(e);
-        const totalPriceElement = e.target.closest('.mx-auto').querySelector('.hidden') ;
+        console.log(e.target.closest('.mx-auto').querySelector('#total-price-container').classList);
+        
+        const totalPriceElement = e.target.closest('.mx-auto').querySelector('#total-price-container') ;
         if(totalPriceElement !== null) {
             totalPriceElement.classList.remove('hidden')
         }
