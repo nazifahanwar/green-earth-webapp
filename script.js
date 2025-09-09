@@ -25,30 +25,40 @@ const showCategories =(categories)=>{
 loadCategories();
 
 const loadPlantsByCategory = (id)=>{
-                fetch(`https://openapi.programming-hero.com/api/category/${id}`)
-                .then(res => res.json())
-                .then(data =>{
-                showPlantsByCategory(data.plants)
-                document.getElementById('id-0')
-                .classList.remove('bg-[#15803D]','text-white');
-                document.getElementById('id-0')
-                .classList.add('bg-[#F0FDF4]')
-                const categoryBtns = document.querySelectorAll('.category-btn');
-                categoryBtns.forEach(btn => btn.classList.remove('active'));
-                const clickBtn = document.getElementById(`id-${id}`)
-                clickBtn.classList.add('active')
-                console.log(clickBtn);                       
+    manageSpinner(true);
+    fetch(`https://openapi.programming-hero.com/api/category/${id}`)      
+    .then(res => res.json())
+   .then(data =>{
+   document.getElementById('id-0')
+   .classList.remove('bg-[#15803D]','text-white');
+   document.getElementById('id-0')
+   .classList.add('bg-[#F0FDF4]')
+   document.getElementById('id-0')
+   .addEventListener('click',()=>{
+    document.getElementById('id-0').classList.add('bg-[#15803D]','text-white');
+    document.getElementById('id-0').classList.remove('bg-[#F0FDF4]');
+    const clickBtn = document.getElementById(`id-${id}`)
+clickBtn.classList.remove('active')
+   })
+
+const categoryBtns = document.querySelectorAll('.category-btn');
+categoryBtns.forEach(btn => btn.classList.remove('active'));
+console.log(categoryBtns); 
+
+const clickBtn = document.getElementById(`id-${id}`)
+clickBtn.classList.add('active')
+            showPlantsByCategory(data.plants)
+                      
             })
+
                 .catch((err)=>{
                  console.log('error happened in loading plants by category!')
              }); 
-                 
+
             }
 const showPlantsByCategory = (plants)=>{
     plantsContainer.innerHTML = '';    
     plants.forEach(plant =>{
-    //console.log(plant);
-    
     plantsContainer.innerHTML +=`
                 <div class="bg-white flex flex-col rounded-lg shadow-lg">
                     <div>
@@ -66,11 +76,10 @@ const showPlantsByCategory = (plants)=>{
                     </button>
                     </div>
                     </div>
-            
                 </div>
     `
 })
- 
+ manageSpinner(false);
 }
 const loadAllPlants = ()=>{
     fetch("https://openapi.programming-hero.com/api/plants")
@@ -164,8 +173,19 @@ plantsContainer.addEventListener('click', (e) => {
     }
 });
 
-//active state button
+//spinner
+const manageSpinner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("plants-container").classList.add("hidden");
+    document.getElementById("cart-section").classList.add("hidden");
 
+  } else {
+    document.getElementById("plants-container").classList.remove("hidden");
+    document.getElementById("cart-section").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
 
 
 

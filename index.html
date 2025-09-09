@@ -66,21 +66,30 @@
         </div>
     </section>
         </div>
-    <section class="bg-[#F0FDF4]">
+    <section class="bg-[#F0FDF4] max-w-11/12 mx-auto">
         <div>
           <dialog id="details_modal" class="modal">
 
           </dialog>
             </div>
-        <h2 class="text-3xl text-center font-bold p-9">Choose Your Trees</h2>
-        <div class="max-w-11/12 mx-auto lg:grid grid-cols-12 gap-4">
-            <div id="categories-container" class="col-span-2 max-lg:grid grid-cols-3">
-                 <h3 class="text-xl font-bold mb-3">Categories</h3>
+        <h2 class="text-3xl text-center font-bold p-9">Choose Your Trees</h2>  
+        <div id="spinner" class="py-8 flex justify-center items-center hidden">
+              <span class="loading loading-bars loading-xs"></span>
+              <span class="loading loading-bars loading-sm"></span>
+              <span class="loading loading-bars loading-md"></span>
+              <span class="loading loading-bars loading-lg"></span>
+              <span class="loading loading-bars loading-xl"></span>
+              </div>     
+        <div class="lg:grid grid-cols-12 gap-4">
+             <div class="col-span-2">
+              <h3 class="text-xl font-bold mb-3 max-lg:text-center">Categories</h3>
+              <div id="categories-container" class="max-lg:text-nowrap max-lg:grid grid-cols-3 gap-2 mb-3">
                 <button onclick ='loadAllPlants()' id="id-0" class="category-btn btn btn-wide hover:bg-[#15803D]  hover:text-white border-none bg-[#15803D] text-white p-1 rounded-sm font-normal justify-start">All Trees</button>
             </div>
-            <div id="plants-container" class="col-span-8  grid grid-cols-3 max-sm:grid-cols-1 gap-3">  
+             </div>
+            <div id="plants-container" class="col-span-8 grid gap-3 grid-cols-3 max-sm:grid-cols-1 mb-5">  
             </div>
-            <div class="col-span-2 p-1 shadow-lg bg-white">
+            <div id="cart-section" class="rounded-lg col-span-2 p-1 shadow-lg bg-white ">
             <h3 class="text-xl font-bold mb-3">Your Cart</h3>
             <p class="font-semibold hidden">Total: <i class="fa-solid fa-bangladeshi-taka-sign"></i><span id="total-price">0</span></p>
             <div id="cart-container" >
