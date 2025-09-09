@@ -105,7 +105,7 @@ const loadPlantDetails = (id)=>{
 const showPlantDetails = (plant)=>{ 
     document.getElementById('details_modal').showModal()
     document.getElementById('details_modal').innerHTML +=`
-      <div class="modal-box w-11/12 max-w-auto  space-y-2">
+      <div class="modal-box max-w-auto space-y-2">
       <h3 class="text-xl font-bold">${plant.name}</h3>
 <img src=${plant.image} class="lg:h-80 max-lg:h-48 w-full object-cover rounded-xl">
 <p><span class="font-bold">Category: </span>${plant.category}</p>
