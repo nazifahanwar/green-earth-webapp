@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
     <link rel="icon" type="image/png" href="./assets/hand-giving-growing-plant.png">
-<!-- daisy ui & tailwind -->
-<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
 <!-- google font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <!-- font-awesome -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <!-- daisy ui & tailwind -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="inter">
     <header class="bg-[#15803D]">
@@ -44,8 +45,9 @@
                 </button>
         </nav>
     </header>
-    <main class="bg-[#CFF0DC]">
-        <section class="max-w-11/12 mx-auto">
+    <main class="bg-[#F0FDF4]">
+        <div class="bg-[#CFF0DC]">
+          <section class="max-w-11/12 mx-auto">
         <div class="lg:flex justify-between items-center">
             <img src="./assets/hero-leaf1.png" class="lg:w-1/4 max-lg:hidden">
             <div class="lg:w-2/4 flex flex-col justify-center items-center">
@@ -63,6 +65,7 @@
             <img src="./assets/hero-leaf2.png" class="lg:hidden w-[100px] h-[100px]">
         </div>
     </section>
+        </div>
     <section class="bg-[#F0FDF4]">
         <div>
           <dialog id="details_modal" class="modal">
@@ -73,22 +76,22 @@
         <div class="max-w-11/12 mx-auto lg:grid grid-cols-12 gap-4">
             <div id="categories-container" class="col-span-2 max-lg:grid grid-cols-3">
                  <h3 class="text-xl font-bold mb-3">Categories</h3>
-                <button onclick ='loadAllPlants()' class="btn btn-wide hover:bg-[#15803D] hover:text-white border-none bg-[#F0FDF4] p-1 rounded-sm font-normal justify-start">All Trees</button>
+                <button onclick ='loadAllPlants()' id="id-0" class="category-btn btn btn-wide hover:bg-[#15803D]  hover:text-white border-none bg-[#15803D] text-white p-1 rounded-sm font-normal justify-start">All Trees</button>
             </div>
             <div id="plants-container" class="col-span-8  grid grid-cols-3 max-sm:grid-cols-1 gap-3">  
             </div>
-            <div class="col-span-2 p-1 bg-white">
+            <div class="col-span-2 p-1 shadow-lg bg-white">
             <h3 class="text-xl font-bold mb-3">Your Cart</h3>
-            <p class="font-semibold hidden">Total: <span id="total-price">0</span></p>
-
+            <p class="font-semibold hidden">Total: <i class="fa-solid fa-bangladeshi-taka-sign"></i><span id="total-price">0</span></p>
             <div id="cart-container" >
-
             </div>
             </div>
+          </div>
+          </section>
         <section class="max-w-11/12 mx-auto">
             <h2 class="text-3xl text-center font-bold mt-16 mb-8">About the Campaign</h2>
-        <div class="flex max-sm:flex-col lg:w-3/5 pb-[70px] lg:mx-auto justify-between items-center gap-5">
-            <img src="./assets/about.png" class="rounded-xl lg:w-1/2 h-96 object-fit" alt="a tree">
+        <div class="lg:flex max-sm:flex-col lg:w-3/5 pb-[70px] mx-auto justify-between items-center gap-5">
+            <img src="./assets/about.png" class="rounded-xl lg:w-1/2 h-96 object-cover" alt="a tree">
             <div class="lg:w-1/2 text-gray-500 flex flex-col gap-5">
                 <p class="text-justify">
                     Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.
@@ -101,10 +104,9 @@
             </div>
         </div>
         </section>
-    </section>
-    <section class="bg-[#CFF0DC] mb-[70px]">
+    <section class="bg-[#CFF0DC] border-1 border-[#CFF0DC]">
         <h2 class="text-3xl text-center font-bold my-12">Our Impact</h2>
-    <div class="max-w-11/12 mx-auto flex gap-7 max-sm:flex-col">
+    <div class="max-w-11/12 mx-auto flex gap-7 max-sm:flex-col mb-[70px]">
     <div class="bg-white sm:w-1/3 sm:p-9 max-sm:h-[100px] rounded-xl flex flex-col justify-center items-center">
         <p class="text-3xl text-[#15803D] font-semibold">500K+</p>
         <p class="text-gray-500">Trees Planted</p>
@@ -119,7 +121,7 @@
     </div>
     </div>
     </section>
-    <section class="bg-[#166534] border">
+    <section class="bg-[#166534] border border-[#14532D]">
         <div class="max-w-11/12 mx-auto mb-[70px]">
             <h2 class="text-3xl text-center font-bold py-10 text-white">Plant a Tree Today</h2>
         <form class="flex justify-center">

@@ -10,7 +10,7 @@ const loadCategories = ()=>{
     .then(data=>{
         const categories = data.categories;
         showCategories(categories);
-    })
+        })
     .catch((err)=>{
         alert('error happened in loading categories!')
     });
@@ -18,8 +18,7 @@ const loadCategories = ()=>{
 const showCategories =(categories)=>{
     categories.forEach(category=>{
     categoriesContainer.innerHTML += `
-    <button onclick="loadPlantsByCategory(${category.id})" class="btn btn-wide border-none bg-[#F0FDF4] 
-         hover:bg-[#15803D] hover:text-white p-1 rounded-sm font-normal justify-start">${category.category_name}</button>`
+    <button id="id-${category.id}" onclick="loadPlantsByCategory(${category.id})" class="category-btn btn btn-wide border-none bg-[#F0FDF4] font-normal hover:bg-[#15803D] hover:text-white p-1 rounded-sm justify-start">${category.category_name}</button>`
     })
     
 }
@@ -28,9 +27,20 @@ loadCategories();
 const loadPlantsByCategory = (id)=>{
                 fetch(`https://openapi.programming-hero.com/api/category/${id}`)
                 .then(res => res.json())
-                .then(data => showPlantsByCategory(data.plants) )
+                .then(data =>{
+                showPlantsByCategory(data.plants)
+                document.getElementById('id-0')
+                .classList.remove('bg-[#15803D]','text-white');
+                document.getElementById('id-0')
+                .classList.add('bg-[#F0FDF4]')
+                const categoryBtns = document.querySelectorAll('.category-btn');
+                categoryBtns.forEach(btn => btn.classList.remove('active'));
+                const clickBtn = document.getElementById(`id-${id}`)
+                clickBtn.classList.add('active')
+                console.log(clickBtn);                       
+            })
                 .catch((err)=>{
-                alert('error happened in loading plants by category!')
+                 console.log('error happened in loading plants by category!')
              }); 
                  
             }
@@ -153,4 +163,10 @@ plantsContainer.addEventListener('click', (e) => {
         
     }
 });
+
+//active state button
+
+
+
+
 
